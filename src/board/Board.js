@@ -1,24 +1,46 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
 import React, { useState } from 'react';
-import './index.css';
 import Card from '../card/Card';
+import cardData from '../data/cards-data.json';
+import './style.css';
+
+function getRandom(arr, n) {
+	const result = new Array(n);
+	let len = arr.length;
+	const taken = new Array(len);
+	if (n > len) {
+		throw new RangeError('getRandom: more elements taken than available');
+	}
+
+	// TODO fix without eslint-disable exception
+	while (n--) {
+		const x = Math.floor(Math.random() * len);
+		result[n] = arr[x in taken ? taken[x] : x];
+		taken[x] = --len in taken ? taken[len] : len;
+	}
+
+	return result;
+}
 
 function Board() {
-	const cards = [null, null, null, null, null, null, null, null, null];
-	const isHappyCardPosition = Math.floor(Math.random() * cards.length);
-	cards[isHappyCardPosition] = true;
+	const cards = getRandom(cardData.otherCards, 8);
+	const happyCard = cardData.happyCards[Math.floor(Math.random() * cardData.happyCards.length)];
 
-	// eslint-disable-next-line no-unused-vars
 	const [rounds, setRounds] = useState(0);
 	const [isFaded, setFaded] = useState([]);
+
+	// add happy card at random place in cards[]
+	cards.splice(Math.floor(Math.random() * cards.length), 0, happyCard);
 
 	const onCardClick = (e, index) => {
 		const { target } = e;
 
 		if (!target) { return; }
 
-		const happyCard = target.classList.contains('card--happy');
+		const cardIsHappy = target.classList.contains('card--happy');
 
-		if (!happyCard) {
+		if (!cardIsHappy) {
 			setFaded((fadedIndex) => { return [...fadedIndex, index]; });
 		} else if (rounds < 5) {
 			setRounds(rounds + 1);
@@ -35,10 +57,10 @@ function Board() {
 						{cards.map((card, index) => {
 							return (
 								<Card
-									// eslint-disable-next-line react/no-array-index-key
-									key={index}
-									isHappy={card}
+									key={card.id}
+									isHappy={card.isHappy}
 									isFaded={isFaded.indexOf(index) > -1}
+									src={card.src}
 									onCardClick={(e) => { onCardClick(e, index); }}
 								/>
 							);
