@@ -8,9 +8,10 @@ function Board() {
 	cards[isHappyCardPosition] = true;
 
 	// eslint-disable-next-line no-unused-vars
-	const [rounds, roundsCounter] = useState(0);
+	const [rounds, setRounds] = useState(0);
+	const [isFaded, setFaded] = useState([]);
 
-	const onCardClick = (e) => {
+	const onCardClick = (e, index) => {
 		const { target } = e;
 
 		if (!target) { return; }
@@ -18,17 +19,9 @@ function Board() {
 		const happyCard = target.classList.contains('card--happy');
 
 		if (!happyCard) {
-			target.classList.add('card--faded');
+			setFaded((fadedIndex) => { return [...fadedIndex, index]; });
 		} else if (rounds < 5) {
-			const targetSiblings = Array.from(target.parentElement.children);
-
-			targetSiblings.forEach((sibling) => {
-				if (sibling.classList.contains('card--faded')) {
-					sibling.classList.remove('card--faded');
-				}
-			});
-
-			roundsCounter(rounds + 1);
+			setRounds(rounds + 1);
 		}
 	};
 
@@ -40,8 +33,15 @@ function Board() {
 				{rounds < 5 && (
 					<>
 						{cards.map((card, index) => {
-							// eslint-disable-next-line react/no-array-index-key
-							return <Card key={index} isHappy={card} onCardClick={onCardClick} />;
+							return (
+								<Card
+									// eslint-disable-next-line react/no-array-index-key
+									key={index}
+									isHappy={card}
+									isFaded={isFaded.indexOf(index) > -1}
+									onCardClick={(e) => { onCardClick(e, index); }}
+								/>
+							);
 						})}
 					</>
 				) }
