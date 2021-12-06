@@ -8,10 +8,10 @@ function Card(props) {
 		<button
 			onClick={props.onCardClick}
 			type="button"
+			aria-label="Card"
 			className={`card${props.isHappy ? ' card--happy' : ''} ${props.isFaded ? ' card--faded' : ''}`}
-		>
-			<img src={props.src} alt="" />
-		</button>
+			style={{ backgroundImage: `url(${process.env.PUBLIC_URL + props.src})` }}
+		/>
 	);
 }
 

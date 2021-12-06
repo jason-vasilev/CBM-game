@@ -2,180 +2,176 @@
 	"happyCards": [
 		{
 			"id": "happy-1",
-			"src": "../images/happy/1.jpg",
+			"src": "/images/happy/1.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-2",
-			"src": "../images/happy/2.jpg",
+			"src": "/images/happy/2.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-3",
-			"src": "../images/happy/3.jpg",
+			"src": "/images/happy/3.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-4",
-			"src": "../images/happy/4.jpg",
+			"src": "/images/happy/4.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-5",
-			"src": "../images/happy/5.jpg",
+			"src": "/images/happy/5.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-6",
-			"src": "../images/happy/6.jpg",
+			"src": "/images/happy/6.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-7",
-			"src": "../images/happy/7.jpg",
+			"src": "/images/happy/7.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-8",
-			"src": "../images/happy/8.jpg",
+			"src": "/images/happy/8.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-9",
-			"src": "../images/happy/9.jpg",
+			"src": "/images/happy/9.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-10",
-			"src": "../images/happy/10.jpg",
+			"src": "/images/happy/10.jpg",
 			"isHappy": true
 		},
 		{
 			"id": "happy-11",
-			"src": "../images/happy/11.jpg",
+			"src": "/images/happy/11.jpg",
 			"isHappy": true
 		}
 	],
 	"otherCards": [
 		{
 			"id": "other-1",
-			"src": "../images/other/1.jpg"
+			"src": "/images/other/1.jpg"
 		},
 		{
 			"id": "other-2",
-			"src": "../images/other/2.jpg"
+			"src": "/images/other/2.jpg"
 		},
 		{
 			"id": "other-3",
-			"src": "../images/other/3.jpg"
+			"src": "/images/other/3.jpg"
 		},
 		{
 			"id": "other-4",
-			"src": "../images/other/4.jpg"
+			"src": "/images/other/4.jpg"
 		},
 		{
 			"id": "other-5",
-			"src": "../images/other/5.jpg"
+			"src": "/images/other/5.jpg"
 		},
 		{
 			"id": "other-6",
-			"src": "../images/other/6.jpg"
+			"src": "/images/other/6.jpg"
 		},
 		{
 			"id": "other-7",
-			"src": "../images/other/7.jpg"
+			"src": "/images/other/7.jpg"
 		},
 		{
 			"id": "other-8",
-			"src": "../images/other/8.jpg"
+			"src": "/images/other/8.jpg"
 		},
 		{
 			"id": "other-9",
-			"src": "../images/other/9.jpg"
+			"src": "/images/other/9.jpg"
 		},
 		{
 			"id": "other-10",
-			"src": "../images/other/10.jpg"
+			"src": "/images/other/10.jpg"
 		},
 		{
 			"id": "other-11",
-			"src": "../images/other/11.jpg"
+			"src": "/images/other/11.jpg"
 		},
 		{
 			"id": "other-12",
-			"src": "../images/other/12.jpg"
+			"src": "/images/other/12.jpg"
 		},
 		{
 			"id": "other-13",
-			"src": "../images/other/13.jpg"
+			"src": "/images/other/13.jpg"
 		},
 		{
 			"id": "other-14",
-			"src": "../images/other/14.jpg"
+			"src": "/images/other/14.jpg"
 		},
 		{
 			"id": "other-15",
-			"src": "../images/other/15.jpg"
+			"src": "/images/other/15.jpg"
 		},
 		{
 			"id": "other-16",
-			"src": "../images/other/16.jpg"
+			"src": "/images/other/16.jpg"
 		},
 		{
 			"id": "other-17",
-			"src": "../images/other/17.jpg"
+			"src": "/images/other/17.jpg"
 		},
 		{
 			"id": "other-18",
-			"src": "../images/other/18.jpg"
+			"src": "/images/other/18.jpg"
 		},
 		{
 			"id": "other-19",
-			"src": "../images/other/19.jpg"
+			"src": "/images/other/19.jpg"
 		},
 		{
 			"id": "other-20",
-			"src": "../images/other/20.jpg"
+			"src": "/images/other/20.jpg"
 		},
 		{
 			"id": "other-21",
-			"src": "../images/other/21.jpg"
+			"src": "/images/other/21.jpg"
 		},
 		{
 			"id": "other-22",
-			"src": "../images/other/22.jpg"
+			"src": "/images/other/22.jpg"
 		},
 		{
 			"id": "other-23",
-			"src": "../images/other/23.jpg"
+			"src": "/images/other/23.jpg"
 		},
 		{
 			"id": "other-24",
-			"src": "../images/other/24.jpg"
+			"src": "/images/other/24.jpg"
 		},
 		{
 			"id": "other-25",
-			"src": "../images/other/25.jpg"
+			"src": "/images/other/25.jpg"
 		},
 		{
 			"id": "other-26",
-			"src": "../images/other/26.jpg"
+			"src": "/images/other/26.jpg"
 		},
 		{
 			"id": "other-27",
-			"src": "../images/other/27.jpg"
+			"src": "/images/other/27.jpg"
 		},
 		{
 			"id": "other-28",
-			"src": "../images/other/28.jpg"
+			"src": "/images/other/28.jpg"
 		},
 		{
 			"id": "other-29",
-			"src": "../images/other/29.jpg"
-		},
-		{
-			"id": "other-30",
-			"src": "../images/other/30.jpg"
+			"src": "/images/other/29.jpg"
 		}
 	]
 }
