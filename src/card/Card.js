@@ -1,31 +1,57 @@
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-function Card(props) {
+function Card({ card, onCardClick }) {
+	const { isHappy, src } = card;
+	const [isFaded, setFaded] = useState(false);
+
+	const onClickHandler = () => {
+		if (isHappy === true) {
+			onCardClick();
+			return;
+		}
+		setFaded(true);
+	};
+
 	return (
-		<button
-			onClick={props.onCardClick}
-			type="button"
-			aria-label="Card"
-			className={`card${props.isHappy ? ' card--happy' : ''} ${props.isFaded ? ' card--faded' : ''}`}
-			style={{ backgroundImage: `url(${process.env.PUBLIC_URL + props.src})` }}
-		/>
+		<>
+			{
+				isFaded ? (
+					<button
+						onClick={onClickHandler}
+						type="button"
+						aria-label="Card"
+						className="card card--faded"
+						style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
+					/>
+
+				) : (
+					<button
+						onClick={onClickHandler}
+						type="button"
+						aria-label="Card"
+						className={`card${isHappy ? ' card--happy' : ''}`}
+						style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
+					/>
+				)
+
+			}
+		</>
+
 	);
 }
 
 Card.defaultProps = {
-	isHappy: false,
-	isFaded: false,
-	src: 'http://placekitten.com/200/300',
+	card: {},
+	onCardClick: () => { },
 };
 
 Card.propTypes = {
-	isHappy: PropTypes.bool,
-	isFaded: PropTypes.bool,
-	onCardClick: PropTypes.func.isRequired,
-	src: PropTypes.string,
+	onCardClick: PropTypes.func,
+	// eslint-disable-next-line react/forbid-prop-types
+	card: PropTypes.object,
 };
 
 export default Card;

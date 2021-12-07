@@ -28,23 +28,12 @@ function Board() {
 	const happyCard = cardData.happyCards[Math.floor(Math.random() * cardData.happyCards.length)];
 
 	const [rounds, setRounds] = useState(0);
-	const [isFaded, setFaded] = useState([]);
 
 	// add happy card at random place in cards[]
 	cards.splice(Math.floor(Math.random() * cards.length), 0, happyCard);
 
-	const onCardClick = (e, index) => {
-		const { target } = e;
-
-		if (!target) { return; }
-
-		const cardIsHappy = target.classList.contains('card--happy');
-
-		if (!cardIsHappy) {
-			setFaded((fadedIndex) => { return [...fadedIndex, index]; });
-		} else if (rounds < 5) {
-			setRounds(rounds + 1);
-		}
+	const onCardClick = () => {
+		setRounds(rounds + 1);
 	};
 
 	return (
@@ -54,14 +43,12 @@ function Board() {
 			<section className="board">
 				{rounds < 5 && (
 					<>
-						{cards.map((card, index) => {
+						{cards.map((card) => {
 							return (
 								<Card
 									key={card.id}
-									isHappy={card.isHappy}
-									isFaded={isFaded.indexOf(index) > -1}
-									src={card.src}
-									onCardClick={(e) => { onCardClick(e, index); }}
+									card={card}
+									onCardClick={onCardClick}
 								/>
 							);
 						})}
