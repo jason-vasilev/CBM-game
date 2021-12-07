@@ -16,30 +16,13 @@ function Card({ card, onCardClick }) {
 	};
 
 	return (
-		<>
-			{
-				isFaded ? (
-					<button
-						onClick={onClickHandler}
-						type="button"
-						aria-label="Card"
-						className="card card--faded"
-						style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
-					/>
-
-				) : (
-					<button
-						onClick={onClickHandler}
-						type="button"
-						aria-label="Card"
-						className={`card${isHappy ? ' card--happy' : ''}`}
-						style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
-					/>
-				)
-
-			}
-		</>
-
+		<button
+			onClick={onClickHandler}
+			type="button"
+			aria-label="Card"
+			className={`card${isHappy ? ' card--happy' : ''}${isFaded ? ' card--faded' : ''}`}
+			style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
+		/>
 	);
 }
 

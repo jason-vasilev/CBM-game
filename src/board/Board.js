@@ -46,7 +46,7 @@ function Board() {
 						{cards.map((card) => {
 							return (
 								<Card
-									key={card.id}
+									key={`${card.id}_${rounds}`}
 									card={card}
 									onCardClick={onCardClick}
 								/>

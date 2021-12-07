@@ -12,10 +12,12 @@
 }
 
 .card--happy {
-	border: 20px solid orange;
+	border: 20px solid green;
 }
 
 .card--faded {
 	opacity: 0.5;
 	transition: ease-in-out opacity 0.2s;
+	border: 20px solid red;
+
 }
