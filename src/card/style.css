@@ -12,10 +12,12 @@
 }
 
 .card--happy {
+	/* TODO: remove before deployment */
 	border: 20px solid orange;
 }
 
 .card--faded {
-	opacity: 0.5;
-	transition: ease-in-out opacity 0.2s;
+	opacity: 0.25;
+	border: 5px solid red;
+	transition: ease-in-out all 0.2s;
 }
