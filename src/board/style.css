@@ -1,8 +1,9 @@
 .board {
-	width: 100%;
-	max-width: 1024px;
-	margin: 0 auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+}
+
+.rounds-progress {
+	text-align: center;
 }

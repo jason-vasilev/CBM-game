@@ -5,6 +5,7 @@
 	margin: 10px;
 	padding: 0;
 	border: 0;
+	border-radius: 4px;
 
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -13,7 +14,7 @@
 
 .card--happy {
 	/* TODO: remove before deployment */
-	border: 20px solid orange;
+	/* border: 20px solid orange; */
 }
 
 .card--faded {

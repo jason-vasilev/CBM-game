@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
-import Board from './board/Board';
+import Start from './start/Start';
+import Header from './header/Header';
+import Footer from './footer/Footer';
 
 function App() {
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Board />
+				<Header />
+				<Start />
+				<Footer />
 			</header>
 		</div>
 	);

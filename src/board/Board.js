@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Card from '../card/Card';
 import cardData from '../data/cards-data.json';
 import './style.css';
@@ -23,8 +24,13 @@ function getRandom(arr, n) {
 	return result;
 }
 
-function Board() {
-	const cards = getRandom(cardData.otherCards, 8);
+function Board(props) {
+	const {
+		cardCount,
+		roundsCount,
+	} = props;
+
+	const cards = getRandom(cardData.otherCards, cardCount - 1);
 	const happyCard = cardData.happyCards[Math.floor(Math.random() * cardData.happyCards.length)];
 
 	const [rounds, setRounds] = useState(1);
@@ -36,9 +42,9 @@ function Board() {
 
 	return (
 		<section>
-			{rounds <= 5 && (
+			{rounds <= roundsCount && (
 				<>
-					<h2>{`${rounds} of 5`}</h2>
+					<h2 className="rounds-progress">{`${rounds} of ${roundsCount}`}</h2>
 					<div className="board">
 						{cards.map((card) => {
 							return (
@@ -56,5 +62,15 @@ function Board() {
 		</section>
 	);
 }
+
+Board.defaultProps = {
+	cardCount: 9,
+	roundsCount: 5,
+};
+
+Board.propTypes = {
+	cardCount: PropTypes.number,
+	roundsCount: PropTypes.number,
+};
 
 export default Board;
