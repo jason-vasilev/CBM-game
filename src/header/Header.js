@@ -4,7 +4,7 @@ function Header() {
 	return (
 		<header>
 			<hgroup>
-				<h1>Optimism cardio</h1>
+				<h1>OptiFlex</h1>
 				<h2>A Cognitive Bias Modification game</h2>
 			</hgroup>
 		</header>

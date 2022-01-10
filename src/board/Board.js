@@ -24,6 +24,37 @@ function getRandom(arr, n) {
 	return result;
 }
 
+let endTime;
+let startTime;
+
+const roundsTime = [];
+
+function start() {
+	startTime = performance.now();
+}
+
+function end() {
+	let timeDiff;
+	endTime = performance.now();
+	timeDiff = endTime - startTime;
+	timeDiff /= 1000;
+
+	roundsTime.push(timeDiff);
+	console.log(roundsTime);
+}
+
+function averageTimeCalc() {
+	let averageTime = roundsTime.reduce((a, b) => {
+		return a + b;
+	});
+
+	averageTime /= roundsTime.length;
+
+	averageTime = averageTime.toFixed(2);
+
+	console.log(averageTime, ' FINAL average time');
+}
+
 function Board(props) {
 	const {
 		cardCount,
@@ -38,7 +69,13 @@ function Board(props) {
 	// add happy card at random place in cards[]
 	cards.splice(Math.floor(Math.random() * cards.length), 0, happyCard);
 
-	const onCardClick = () => { setRounds(rounds + 1); };
+	const onCardClick = () => {
+		setRounds(rounds + 1);
+		end();
+		averageTimeCalc();
+	};
+
+	start();
 
 	return (
 		<section>
