@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from '../card/Card';
 import cardData from '../data/cards-data.json';
-import './style.css';
+import './Board.scss';
 
 function getRandom(arr, n) {
 	const result = new Array(n);

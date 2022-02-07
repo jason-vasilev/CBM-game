@@ -1,0 +1,29 @@
+.card {
+	width: 100%;
+	max-width: 31%;
+	height: 250px;
+	margin: 10px;
+	padding: 0;
+	border: 0;
+	border-radius: 4px;
+
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	&--happy {
+		/* TODO: remove before deployment */
+		/* border: 20px solid orange; */
+	}
+
+	&--faded {
+		opacity: 0.25;
+		border: 5px solid red;
+		transition: ease-in-out all 0.2s;
+	}
+
+	&__credits {
+		position: absolute;
+		bottom: 0;
+	}
+}

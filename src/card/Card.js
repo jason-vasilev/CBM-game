@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import './style.css';
+import './Card.scss';
 
 function Card(props) {
 	const {
@@ -24,7 +24,13 @@ function Card(props) {
 			aria-label="Card"
 			className={`card${isHappy ? ' card--happy' : ''} ${isFaded ? ' card--faded' : ''}`}
 			style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
-		/>
+		>
+			<span className="card__credits">
+				<a href="#.#" target="_blank" rel="noopener">
+					Portrait by @BoB.Johnson from Unsplash
+				</a>
+			</span>
+		</button>
 	);
 }
 

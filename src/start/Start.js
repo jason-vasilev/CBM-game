@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
 import Board from '../board/Board';
-import './style.css';
+import './Start.scss';
 
 function Start() {
 	const [startGame, setStartGame] = useState(false);
@@ -60,13 +60,13 @@ function Start() {
 					<button
 						type="button"
 						onClick={onClickHandle}
-						className="btn btnStart"
+						className="btn start-btn"
 					>
-						<span className="btnStartText">
+						<span className="start-btn__text">
 							Start
 						</span>
 
-						<span className="btnStartHover">
+						<span className="start-btn__hover">
 							Here we go &rarr;
 						</span>
 					</button>
