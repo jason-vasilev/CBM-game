@@ -4,12 +4,17 @@ import './Card.scss';
 
 function Card(props) {
 	const {
-		onCardClick, isHappy, src,
+		onCardClick,
+		isHappy,
+		src,
+		author,
+		authorUrl,
 	} = props;
 
 	const [isFaded, setFaded] = useState(false);
 
-	const onClickHandle = () => {
+	const onClickHandle = (event) => {
+		event.stopPropagation();
 		if (isHappy) {
 			onCardClick();
 		} else {
@@ -18,31 +23,38 @@ function Card(props) {
 	};
 
 	return (
-		<button
-			onClick={onClickHandle}
-			type="button"
-			aria-label="Card"
-			className={`card${isHappy ? ' card--happy' : ''} ${isFaded ? ' card--faded' : ''}`}
-			style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
-		>
-			<span className="card__credits">
-				<a href="#.#" target="_blank" rel="noopener">
-					Portrait by @BoB.Johnson from Unsplash
-				</a>
-			</span>
-		</button>
+		<div className="card__wrapper">
+			<button
+				onClick={onClickHandle}
+				type="button"
+				aria-label="Card"
+				className={`card${isHappy ? ' card--happy' : ''} ${isFaded ? ' card--faded' : ''}`}
+				style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
+			/>
+			{author && (
+				<span className="card__credits">
+					<a href={authorUrl} target="_blank" rel="noreferrer" className="card__credits-link">
+						{`Portrait by ${author}, Unsplash`}
+					</a>
+				</span>
+			)}
+		</div>
 	);
 }
 
 Card.defaultProps = {
 	isHappy: false,
 	src: 'http://placekitten.com/200/300',
+	author: '',
+	authorUrl: '',
 };
 
 Card.propTypes = {
 	isHappy: PropTypes.bool,
 	onCardClick: PropTypes.func.isRequired,
 	src: PropTypes.string,
+	author: PropTypes.string,
+	authorUrl: PropTypes.string,
 };
 
 export default Card;

@@ -1,8 +1,6 @@
 .card {
 	width: 100%;
-	max-width: 31%;
 	height: 250px;
-	margin: 10px;
 	padding: 0;
 	border: 0;
 	border-radius: 4px;
@@ -10,6 +8,9 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+
+	cursor: pointer;
+
 
 	&--happy {
 		/* TODO: remove before deployment */
@@ -22,8 +23,44 @@
 		transition: ease-in-out all 0.2s;
 	}
 
+	&__wrapper {
+		position: relative;
+		width: 100%;
+		max-width: 31%;
+		height: 250px;
+		margin: 10px;
+
+		&:hover,
+		&:focus {
+			animation: jiggle 0.2s infinite;
+		}
+	}
+
 	&__credits {
 		position: absolute;
-		bottom: 0;
+		bottom: 10px;
+
+		width: 100%;
+		left: 0;
+		right: 0;
+		background: rgba(#282c34, 0.8);
+
+		text-align: center;
+	}
+
+	&__credits-link {
+		padding: 8px 16px;
+		display: inline-block;
+		text-decoration: none;
+		font-size: 14px;
+	}
+}
+
+@keyframes jiggle {
+	0% {
+		transform: rotate(-1deg);
+	}
+	50% {
+		transform: rotate(1deg);
 	}
 }

@@ -89,6 +89,7 @@ function Board(props) {
 									key={card.id + rounds}
 									isHappy={card.isHappy}
 									src={card.src}
+									author={card.author}
 									onCardClick={onCardClick}
 								/>
 							);
