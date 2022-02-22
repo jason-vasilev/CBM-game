@@ -59,13 +59,13 @@ function Board(props) {
 	const {
 		cardCount,
 		roundsCount,
-		seeCredits,
 	} = props;
 
 	const cards = getRandom(cardData.otherCards, cardCount - 1);
 	const happyCard = cardData.happyCards[Math.floor(Math.random() * cardData.happyCards.length)];
 
 	const [rounds, setRounds] = useState(1);
+	const [seeCredits, setSeeCredits] = useState(false);
 
 	// add happy card at random place in cards[]
 	cards.splice(Math.floor(Math.random() * cards.length), 0, happyCard);
@@ -78,11 +78,20 @@ function Board(props) {
 
 	start();
 
+	const toggleCredits = () => {
+		setSeeCredits(!seeCredits);
+	};
+
 	return (
 		<section>
 			{rounds <= roundsCount && (
 				<>
 					<h2 className="rounds-progress">{`${rounds} of ${roundsCount}`}</h2>
+					<div>
+						<span>Show photo credits</span>
+						<input type="checkbox" name="show-credits" id="show-credits" className="checkbox" onChange={toggleCredits} />
+						<label htmlFor="show-credits" />
+					</div>
 					<div className="board">
 						{cards.map((card) => {
 							return (
@@ -107,13 +116,11 @@ function Board(props) {
 Board.defaultProps = {
 	cardCount: 9,
 	roundsCount: 5,
-	seeCredits: false,
 };
 
 Board.propTypes = {
 	cardCount: PropTypes.number,
 	roundsCount: PropTypes.number,
-	seeCredits: PropTypes.bool,
 };
 
 export default Board;
