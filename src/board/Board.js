@@ -91,6 +91,7 @@ function Board(props) {
 									isHappy={card.isHappy}
 									src={card.src}
 									author={card.author}
+									authorUrl={card.authorUrl}
 									seeCredits={seeCredits}
 									onCardClick={onCardClick}
 								/>

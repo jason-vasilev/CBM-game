@@ -43,9 +43,16 @@
 		width: 100%;
 		left: 0;
 		right: 0;
-		background: rgba(#282c34, 0.8);
+		background-color: rgba(#282c34, 0.8);
 
 		text-align: center;
+
+		transition: background-color 0.25s ease-out;
+
+		&:focus,
+		&:hover {
+			background-color: #282c34;
+		}
 	}
 
 	&__credits-link {
@@ -53,6 +60,13 @@
 		display: inline-block;
 		text-decoration: none;
 		font-size: 14px;
+
+		transition: color 0.25s ease-out;
+
+		&:focus,
+		&:hover {
+			color: white;
+		}
 	}
 }
 
