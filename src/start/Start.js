@@ -1,9 +1,14 @@
 /* eslint-disable max-len */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Board from '../board/Board';
 import './Start.scss';
 
-function Start() {
+function Start(props) {
+	const {
+		seeCredits,
+	} = props;
+
 	const [startGame, setStartGame] = useState(false);
 	const [cardCount, setCardCount] = useState(9);
 	const [roundsCount, setRoundsCount] = useState(5);
@@ -73,9 +78,17 @@ function Start() {
 				</>
 			)}
 
-			{startGame && <Board cardCount={cardCount} roundsCount={roundsCount} />}
+			{startGame && <Board seeCredits={seeCredits} cardCount={cardCount} roundsCount={roundsCount} />}
 		</>
 	);
 }
+
+Start.defaultProps = {
+	seeCredits: false,
+};
+
+Start.propTypes = {
+	seeCredits: PropTypes.bool,
+};
 
 export default Start;

@@ -1,4 +1,3 @@
-/* import React, { useState } from 'react'; */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Header.scss';
@@ -8,17 +7,8 @@ function Header(props) {
 		onCreditsClick,
 	} = props;
 
-	/* const [seeCredits, setSeeCredits] = useState(false); */
-
-	const onChangeHandle = (event) => {
-		event.stopPropagation();
-		if (event.target.value) {
-			/* setSeeCredits(false); */
-			onCreditsClick();
-		} else {
-			/* setSeeCredits(true); */
-			onCreditsClick();
-		}
+	const onChangeHandle = () => {
+		onCreditsClick();
 	};
 
 	return (

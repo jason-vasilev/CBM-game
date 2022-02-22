@@ -9,6 +9,7 @@ function Card(props) {
 		src,
 		author,
 		authorUrl,
+		seeCredits,
 	} = props;
 
 	const [isFaded, setFaded] = useState(false);
@@ -31,7 +32,7 @@ function Card(props) {
 				className={`card${isHappy ? ' card--happy' : ''} ${isFaded ? ' card--faded' : ''}`}
 				style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
 			/>
-			{author && (
+			{author && seeCredits && (
 				<span className="card__credits">
 					<a href={authorUrl} target="_blank" rel="noreferrer" className="card__credits-link">
 						{`Portrait by ${author}, Unsplash`}
@@ -44,6 +45,7 @@ function Card(props) {
 
 Card.defaultProps = {
 	isHappy: false,
+	seeCredits: false,
 	src: 'http://placekitten.com/200/300',
 	author: '',
 	authorUrl: '',
@@ -51,6 +53,7 @@ Card.defaultProps = {
 
 Card.propTypes = {
 	isHappy: PropTypes.bool,
+	seeCredits: PropTypes.bool,
 	onCardClick: PropTypes.func.isRequired,
 	src: PropTypes.string,
 	author: PropTypes.string,

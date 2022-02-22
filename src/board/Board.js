@@ -59,6 +59,7 @@ function Board(props) {
 	const {
 		cardCount,
 		roundsCount,
+		seeCredits,
 	} = props;
 
 	const cards = getRandom(cardData.otherCards, cardCount - 1);
@@ -90,6 +91,7 @@ function Board(props) {
 									isHappy={card.isHappy}
 									src={card.src}
 									author={card.author}
+									seeCredits={seeCredits}
 									onCardClick={onCardClick}
 								/>
 							);
@@ -104,11 +106,13 @@ function Board(props) {
 Board.defaultProps = {
 	cardCount: 9,
 	roundsCount: 5,
+	seeCredits: false,
 };
 
 Board.propTypes = {
 	cardCount: PropTypes.number,
 	roundsCount: PropTypes.number,
+	seeCredits: PropTypes.bool,
 };
 
 export default Board;

@@ -1,32 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from 'react';
 import './App.scss';
 import Start from './start/Start';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 
-function App(props) {
-	const {
-		onCreditsClick,
-	} = props;
+function App() {
+	const [seeCredits, setSeeCredits] = useState(false);
 
 	return (
 		<div className="App">
 			<header className="App-header">
-				<Header onCreditsClick="true" />
+				<Header onCreditsClick={() => { return setSeeCredits(!seeCredits); }} />
 			</header>
-			<Start onCreditsClick={onCreditsClick} />
+			<Start seeCredits={seeCredits} />
 			<Footer />
 		</div>
 	);
 }
-
-App.defaultProps = {
-	onCreditsClick: false,
-};
-
-App.propTypes = {
-	onCreditsClick: PropTypes.bool,
-};
 
 export default App;
