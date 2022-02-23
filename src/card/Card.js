@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Card.scss';
+import CardCredit from './CardCredit';
 
 function Card(props) {
 	const {
@@ -32,12 +33,8 @@ function Card(props) {
 				className={`card${isHappy ? ' card--happy' : ''} ${isFaded ? ' card--faded' : ''}`}
 				style={{ backgroundImage: `url(${process.env.PUBLIC_URL + src})` }}
 			/>
-			{author && seeCredits && (
-				<span className="card__credits">
-					<a href={authorUrl} target="_blank" rel="noreferrer" className="card__credits-link">
-						{`Portrait by ${author}, Unsplash`}
-					</a>
-				</span>
+			{author && (
+				<CardCredit author={author} authorUrl={authorUrl} seeCredits={seeCredits} />
 			)}
 		</div>
 	);
