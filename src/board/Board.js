@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-plusplus */
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import Card from '../card/Card';
 import cardData from '../data/cards-data.json';
@@ -55,20 +55,31 @@ function averageTimeCalc() {
 	console.log(averageTime, ' FINAL average time');
 }
 
+function getRandomIntInclusive(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1) + min); /* The maximum is inclusive and the minimum is inclusive */
+}
+
 function Board(props) {
 	const {
 		cardCount,
 		roundsCount,
 	} = props;
 
-	const cards = getRandom(cardData.otherCards, cardCount - 1);
-	const happyCard = cardData.happyCards[Math.floor(Math.random() * cardData.happyCards.length)];
-
 	const [rounds, setRounds] = useState(1);
 	const [seeCredits, setSeeCredits] = useState(false);
 
-	// add happy card at random place in cards[]
-	cards.splice(Math.floor(Math.random() * cards.length), 0, happyCard);
+	const cards = useMemo(() => {
+		const cardsZ = getRandom(cardData.otherCards, cardCount - 1);
+		const happyCard = cardData.happyCards[getRandomIntInclusive(0, cardData.happyCards.length - 1)];
+
+		// add happy card at random place in cards[]
+		cardsZ.splice(getRandomIntInclusive(0, cardsZ.length), 0, happyCard);
+
+		return cardsZ;
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [cardCount, rounds]);
 
 	const onCardClick = () => {
 		setRounds(rounds + 1);
